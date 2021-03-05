@@ -11,7 +11,7 @@ module.exports = {
         test: /\.(js|mjs|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: "babel-loader",
         },
       },
       {
@@ -28,19 +28,19 @@ module.exports = {
       {
         test: /\.(jpe?g|gif|png|svg)$/i,
         use: [
-        {
-          loader: 'url-loader',
-          options: {
-            limit: 10000
-          }
-        }
-      ]
-    }
-    ]
+          {
+            loader: "url-loader",
+            options: {
+              limit: 10000,
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/template.html"
-    })
-  ]
+      template: "./src/template.html",
+    }),
+  ],
 };

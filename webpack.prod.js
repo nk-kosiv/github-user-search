@@ -1,16 +1,14 @@
 const path = require("path");
-const config = require('./webpack.config.js');
-const { merge } = require('webpack-merge');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const config = require("./webpack.config.js");
+const { merge } = require("webpack-merge");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = merge(config, {
-  mode: 'production',
+  mode: "production",
   entry: "./src/index.js",
   output: {
     filename: "[name].[hash].bundle.js",
-    path: path.resolve(__dirname, "build")
+    path: path.resolve(__dirname, "docs"),
   },
-  plugins: [
-    new CleanWebpackPlugin()
-  ]
+  plugins: [new CleanWebpackPlugin()],
 });
