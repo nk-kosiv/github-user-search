@@ -1,17 +1,15 @@
-import { INCREMENT, DECREMENT } from "../actionTypes/counter";
+import { SET_USERS_DATA } from "../actionTypes/user";
 
 const initialState = {
-  count: 0,
+  userData: [],
 };
 
-const counterReducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case INCREMENT:
-      return { count: state.count + 1 };
-    case DECREMENT:
-      return { count: state.count - 1 };
+    case SET_USERS_DATA:
+      return { userData: action.payload };
     default:
       return state;
   }
 };
-export default counterReducer;
+export default userReducer;
