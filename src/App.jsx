@@ -1,14 +1,16 @@
 import React from "react";
-import gal from "./images/galexy.jpg";
-
 import "./index.scss";
+import SearchBlock from "./components/SearchBlock";
+import Header from "./components/Header";
+import UserInfoBlock from "./components/UserInfoBlock";
 
 const App = () => {
   return (
-    <div>
-      <h1>My React App!</h1>
-      <img src={gal} alt="gal" />
-    </div>
+    <main className="mainContainer">
+      <Header />
+      <SearchBlock />
+      <UserInfoBlock />
+    </main>
   );
 };
 

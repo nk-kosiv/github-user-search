@@ -1,9 +1,8 @@
-const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    main: ["@babel/polyfill", "./src/index.js"],
+    main: ["@babel/polyfill", "./src/index.js", "./src/index.scss"],
   },
   module: {
     rules: [
@@ -17,12 +16,15 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          // Creates `style` nodes from JS strings
-          "style-loader",
-          // Translates CSS into CommonJS
-          "css-loader",
-          // Compiles Sass to CSS
-          "sass-loader",
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+          },
+          {
+            loader: "sass-loader",
+          },
         ],
       },
       {
