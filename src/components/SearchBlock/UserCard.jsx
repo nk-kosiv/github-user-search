@@ -7,7 +7,7 @@ import Avatar from "@material-ui/core/Avatar";
 
 import styles from "./styles.module.scss";
 
-const UserCard = ({ src, name, handleOpenUserInfo }) => {
+const UserCard = ({ src, name, handleOpenUserInfo, repoUrl }) => {
   return (
     <div
       onClick={handleOpenUserInfo}
@@ -17,6 +17,11 @@ const UserCard = ({ src, name, handleOpenUserInfo }) => {
       <div className={styles.avatarContainer}>
         <Avatar alt={name} src={src} />
         <Typography>User name: {name}</Typography>
+      </div>
+      <div className={styles.seeUserLink}>
+        <Link color="primary" target="blank" href={repoUrl}>
+          User page
+        </Link>
       </div>
     </div>
   );

@@ -13,8 +13,19 @@ import styles from "./styles.module.scss";
 
 const UserInfoBlock = () => {
   const dispatch = useDispatch();
+  const {
+    avatar,
+    bio,
+    joinDate,
+    email,
+    followers,
+    name,
+    location,
+  } = useSelector((state) => state.user.userInfo);
   const { isOpen } = useSelector((state) => state.infoModal);
+
   const handleClose = () => dispatch(closeInfoModalAction());
+
   return (
     <>
       {isOpen ? (
