@@ -1,14 +1,13 @@
 .searchWrapper {
-  width: 100%;
-  height: calc(100% - 60px);
+  min-height: 300px;
   display: flex;
   justify-content: center;
+  flex-grow: 1;
 
   .paper {
-    width: 80%;
-    margin-top: 20px;
+    width: 90%;
+    max-width: 800px;
     text-align: center;
-    margin-bottom: 20px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -21,10 +20,23 @@
   overflow-y: scroll;
   .cardContainer {
     width: 100%;
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     padding: 10px;
+    outline: none;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    &:active {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
     .avatarContainer {
       display: flex;
       justify-content: center;
@@ -39,5 +51,9 @@
       justify-content: center;
       padding: 0 20px;
     }
+  }
+  .noResultsText {
+    padding: 20px;
+    font-size: 1.2rem;
   }
 }

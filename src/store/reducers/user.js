@@ -1,7 +1,7 @@
 import { SET_USERS_DATA } from "../actionTypes/user";
 
 const initialState = {
-  userData: {},
+  userData: [],
 };
 
 const userReducer = (state = initialState, action) => {

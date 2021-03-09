@@ -7,17 +7,16 @@ import Avatar from "@material-ui/core/Avatar";
 
 import styles from "./styles.module.scss";
 
-const UserCard = ({ src, name, htmlUrl }) => {
+const UserCard = ({ src, name, handleOpenUserInfo }) => {
   return (
-    <div className={styles.cardContainer}>
+    <div
+      onClick={handleOpenUserInfo}
+      tabIndex="0"
+      className={styles.cardContainer}
+    >
       <div className={styles.avatarContainer}>
         <Avatar alt={name} src={src} />
         <Typography>User name: {name}</Typography>
-      </div>
-      <div className={styles.seeUserLink}>
-        <Link color="primary" target="blank" href={htmlUrl}>
-          Click to see user page
-        </Link>
       </div>
     </div>
   );

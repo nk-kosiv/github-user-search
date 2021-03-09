@@ -1,5 +1,5 @@
 // External imports
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
@@ -8,16 +8,25 @@ import Typography from "@material-ui/core/Typography";
 import PropTypes from "prop-types";
 
 // Intrrnal imports
-import { getUser } from "../../store/middlewere/user";
+import { getUser, getUserInfo } from "../../store/middlewere/user";
+import { openInfoModalAction } from "../../store/actionCreators/infoModal";
 import UserCard from "./UserCard.jsx";
 import styles from "./styles.module.scss";
 
 const SearchBlock = () => {
+  const [inputName, setInputName] = useState("");
+
   const dispatch = useDispatch();
   const { userData } = useSelector((state) => state.user);
 
-  const handleGetUser = (e) => dispatch(getUser(e.target.value));
-
+  const handleGetUser = (e) => {
+    setInputName(e.target.value);
+    dispatch(getUser(e.target.value));
+  };
+  const handleOpenUserInfo = (url) => {
+    getUserInfo(url);
+    dispatch(openInfoModalAction());
+  };
   return (
     <div className={styles.searchWrapper}>
       <Paper elevation={3} className={styles.paper}>
@@ -34,16 +43,18 @@ const SearchBlock = () => {
 
         <Divider />
         <div className={styles.cardsWrapper}>
-          {!!userData.length &&
-            userData.map(({ avatar, name, userPage, userApiUrl }) => (
+          {inputName ? (
+            userData.map(({ avatar, name, userApiUrl }) => (
               <UserCard
                 key={name}
                 src={avatar}
                 name={name}
-                htmlUrl={userPage}
-                userApiUrl={userApiUrl}
+                handleOpenUserInfo={() => handleOpenUserInfo(userApiUrl)}
               />
-            ))}
+            ))
+          ) : (
+            <p className={styles.noResultsText}>No results</p>
+          )}
         </div>
       </Paper>
     </div>

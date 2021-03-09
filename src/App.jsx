@@ -7,9 +7,13 @@ import UserInfoBlock from "./components/UserInfoBlock";
 const App = () => {
   return (
     <main className="mainContainer">
-      <Header />
-      <SearchBlock />
-      <UserInfoBlock />
+      <div className="header">
+        <Header />
+      </div>
+      <div className="content">
+        <SearchBlock />
+        <UserInfoBlock />
+      </div>
     </main>
   );
 };

@@ -1,6 +1,6 @@
 import { setNewUserDataAction } from "../actionCreators/user";
 
-export const getUser = (name) => async (dispatch, getState) => {
+export const getUser = (name) => async (dispatch) => {
   try {
     if (!name.length) return;
 
@@ -24,6 +24,13 @@ export const getUser = (name) => async (dispatch, getState) => {
 
     dispatch(setNewUserDataAction(result));
   } catch (e) {
-    console.log(e);
+    console.error(e);
+  }
+};
+
+export const getUserInfo = (url) => (dispatch, getState) => {
+  try {
+  } catch (e) {
+    console.error(e);
   }
 };
