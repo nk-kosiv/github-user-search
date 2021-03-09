@@ -2,8 +2,13 @@ import {
   setNewUsersDataAction,
   setUserInfoAction,
   setIsUserInfoLoadinAction,
+  setUserReposAction,
 } from "../actionCreators/user";
-import { normalizeUserInfo, normalizeUsersData } from "./utils/normalize";
+import {
+  normalizeUserInfo,
+  normalizeUsersData,
+  normalizeUserRepos,
+} from "./utils/normalize";
 
 export const getUsers = (name) => async (dispatch) => {
   try {
@@ -24,7 +29,7 @@ export const getUsers = (name) => async (dispatch) => {
   }
 };
 
-export const getUserInfo = (url) => async (dispatch, getState) => {
+export const getUserInfo = (url) => async (dispatch) => {
   try {
     if (!url.length) {
       dispatch(setUserInfoAction({}));
@@ -39,6 +44,23 @@ export const getUserInfo = (url) => async (dispatch, getState) => {
 
     dispatch(setUserInfoAction(userInfo));
     dispatch(setIsUserInfoLoadinAction(false));
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const getUserRepos = (url) => async (dispatch) => {
+  try {
+    if (!url.length) {
+      dispatch(setUserReposAction([]));
+      return;
+    }
+
+    const response = await fetch(url);
+    const result = await response.json();
+    const userRepos = result.map((res) => normalizeUserRepos(res));
+
+    dispatch(setUserReposAction(userRepos));
   } catch (e) {
     console.error(e);
   }
