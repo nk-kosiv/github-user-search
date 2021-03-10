@@ -50,6 +50,10 @@
       align-items: center;
       justify-content: center;
       padding: 0 20px;
+      a {
+        display: inline-block;
+        min-width: 65px;
+      }
     }
   }
   .noResultsText {

@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import Avatar from "@material-ui/core/Avatar";
@@ -27,6 +26,11 @@ const UserCard = ({ src, name, handleOpenUserInfo, repoUrl }) => {
   );
 };
 
-UserCard.propTypes = {};
+UserCard.propTypes = {
+  src: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  handleOpenUserInfo: PropTypes.func.isRequired,
+  repoUrl: PropTypes.string.isRequired,
+};
 
 export default UserCard;

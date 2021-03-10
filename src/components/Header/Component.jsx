@@ -1,16 +1,15 @@
+// External dependencies
 import React from "react";
-import PropTypes from "prop-types";
 
+// Internal dependencies
 import styles from "./styles.module.scss";
 
-const Header = (props) => {
+const Header = () => {
   return (
     <header className={styles.header}>
       <h1>GitHub User Search</h1>
     </header>
   );
 };
-
-Header.propTypes = {};
 
 export default Header;

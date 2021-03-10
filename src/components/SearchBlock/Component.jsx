@@ -1,11 +1,10 @@
 // External imports
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
-import PropTypes from "prop-types";
 
 // Intrrnal imports
 import { getUsers, getUserInfo } from "../../store/middlewere/user";
@@ -31,7 +30,7 @@ const SearchBlock = () => {
       <Paper elevation={3} className={styles.paper}>
         <div className={styles.searchHeader}>
           <Typography color="primary" variant="h4" component="h2">
-            GitHub Search
+            Search User
           </Typography>
           <TextField
             margin="dense"
@@ -59,7 +58,5 @@ const SearchBlock = () => {
     </div>
   );
 };
-
-SearchBlock.propTypes = {};
 
 export default SearchBlock;
